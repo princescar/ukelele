@@ -1,0 +1,126 @@
+.mine {
+  .header {
+    position: relative;
+    padding-top: 10px;
+    background: linear-gradient(
+        247deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(232, 255, 225, 1) 100%
+      )
+      rgba(255, 255, 255, 1);
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.05);
+    .setting {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      height: 20px;
+      width: 20px;
+      background: url('../assets/setting.svg') center / 18px no-repeat;
+    }
+    .avatar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 600;
+      img {
+        height: 60px;
+        width: 60px;
+        border-radius: 999px;
+        margin-bottom: 5px;
+        object-fit: cover;
+        background-color: #eee;
+      }
+    }
+    .my-list {
+      display: flex;
+      flex-direction: row;
+      .item {
+        flex: 1;
+        padding: 25px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .icon {
+          height: 23px;
+          width: 23px;
+        }
+        .name {
+          margin-top: 5px;
+          font-size: 12px;
+        }
+        .note {
+          margin-top: 10px;
+          font-size: 12px;
+          color: #4a4a4a;
+        }
+      }
+    }
+  }
+  .order-status-tabs {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #ececec;
+    li {
+      flex: 1;
+      border-bottom: 3px solid transparent;
+      padding: 5px;
+      font-size: 12px;
+      text-align: center;
+      color: #4a4a4a;
+      &.active {
+        border-color: #f5a623;
+        color: #f5a623;
+      }
+    }
+  }
+  .order-list {
+    .card {
+      margin-bottom: 2px;
+      background-color: #fff;
+      display: flex;
+      flex-direction: row;
+      &.loading > svg {
+        height: 110px;
+      }
+      .thumbnail {
+        height: 80px;
+        width: 80px;
+        border-radius: 5px;
+        margin: 15px 25px;
+        object-fit: cover;
+        background-color: #eee;
+      }
+      .summary {
+        flex: 1;
+        margin: 15px;
+        margin-left: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .title {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          .store {
+            font-size: 14px;
+            font-weight: 600;
+          }
+          .status {
+            font-size: 12px;
+            color: #9b9b9b;
+          }
+        }
+        .time {
+          font-size: 12px;
+          color: #4a4a4a;
+        }
+        .info {
+          font-size: 12px;
+          color: #4a4a4a;
+        }
+      }
+    }
+  }
+}

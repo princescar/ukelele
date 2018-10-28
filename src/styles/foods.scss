@@ -1,0 +1,116 @@
+.foods {
+  padding-bottom: 20px;
+  .header {
+    margin-bottom: 10px;
+    padding: 10px;
+    background: linear-gradient(
+        240deg,
+        rgba(8, 174, 234, 1) 0%,
+        rgba(47, 181, 130, 1) 100%
+      )
+      rgba(56, 186, 135, 0.3);
+    .search-bar {
+      position: relative;
+      height: 35px;
+      border-radius: 999px;
+      margin: 0 10px;
+      margin-top: 10px;
+      padding-left: 40px;
+      line-height: 35px;
+      vertical-align: middle;
+      font-size: 12px;
+      color: #4a4a4a;
+      background-color: rgba(255, 255, 255, 0.6);
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 40px;
+        background: center / 16px no-repeat;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path fill="#4A4A4A" d="M11.8257 10.9843a.595.595 0 0 1-.8414.8414L7.1985 8.04c-.0107-.0107-.0142-.0253-.024-.0366-1.8657 1.429-4.5199 1.1658-6.0686-.6017-1.5487-1.7675-1.4608-4.4332.2009-6.095C2.9685-.3548 5.6342-.4427 7.4018 1.106c1.7674 1.5487 2.0306 4.203.6016 6.0686.0113.0098.0259.0133.0366.024l3.7857 3.7858zM7.2003 1.7287C5.6903.2184 3.2423.2172 1.7308 1.7261.2193 3.2349.2163 5.683 1.724 7.1956c1.5076 1.5126 3.9558 1.5175 5.4695.011.002-.0024.003-.0057.005-.008.0021-.0024.0057-.003.008-.0051 1.5047-1.5119 1.502-3.9563-.0062-5.4648z"/></svg>');
+      }
+    }
+    .tag-list {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: row;
+      .item {
+        height: 100px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        color: #fff;
+        text-decoration: none;
+        svg {
+          height: 24px;
+          width: 24px;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+  .food-list {
+    .list-title {
+      padding: 10px 15px 20px 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      .name {
+        font-size: 14px;
+      }
+      .count {
+        padding-right: 16px;
+        font-size: 12px;
+        color: #295059;
+        background: url() right center / 7px 12px no-repeat;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 11"><path fill="#AEAEAE" fill-rule="evenodd" d="M6.3442 4.9097L1.8901.5721c-.2697-.2609-.706-.2609-.974 0-.268.2625-.268.6873 0 .9481l3.9732 3.8661L.916 9.2541a.6576.6576 0 0 0 0 .9464c.268.2609.7043.2609.974 0L6.3442 5.863c.134-.1371.2027-.306.2027-.4766a.6605.6605 0 0 0-.2027-.4766z"/></svg>');
+      }
+    }
+    ul {
+      padding-bottom: 15px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      overflow: hidden;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      .card {
+        height: 190px;
+        min-width: 135px;
+        border-radius: 5px;
+        margin-left: 15px;
+        margin-right: 5px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #fff;
+        box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.03);
+        img {
+          height: 135px;
+          width: 135px;
+          object-fit: cover;
+          background-color: #eee;
+        }
+        .name {
+          margin-top: 12px;
+          font-size: 12px;
+        }
+        .heat {
+          margin-top: 3px;
+          font-size: 10px;
+          color: #30B784;
+        }
+      }
+      .spacer {
+        min-width: 10px;
+      }
+    }
+  }
+}

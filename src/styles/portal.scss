@@ -1,0 +1,44 @@
+$tabBarHeight: 50px;;
+$tabItemActiveColor: #31ba86;
+
+.portal {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding-bottom: calc(#{$tabBarHeight} + constant(safe-area-inset-bottom));
+  padding-bottom: calc(#{$tabBarHeight} + env(safe-area-inset-bottom));
+  .tab-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: calc(#{$tabBarHeight} + constant(safe-area-inset-bottom));
+    height: calc(#{$tabBarHeight} + env(safe-area-inset-bottom));
+    border-top: 1px solid #d9d9d9;
+    padding-bottom: constant(safe-area-inset-bottom);
+		padding-bottom: env(safe-area-inset-bottom);
+    display: flex;
+    flex-direction: row;
+    background-color: #fafafa;
+    & > .item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 11px;
+      color: #7c7c7c;
+      text-decoration: none;
+      svg {
+        height: 24px;
+        width: 24px;
+        fill: #7c7c7c;
+      }
+      &.active {
+        color: $tabItemActiveColor;
+        svg {
+          fill: $tabItemActiveColor;
+        }
+      }
+    }
+  }
+}

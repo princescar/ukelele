@@ -1,0 +1,33 @@
+{
+  "name": "ukelele",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "classnames": "^2.2.6",
+    "node-sass": "^4.9.3",
+    "react": "^16.5.2",
+    "react-content-loader": "^3.2.0",
+    "react-dom": "^16.5.2",
+    "react-helmet": "^5.2.0",
+    "react-loadable": "^5.5.0",
+    "react-md-spinner": "^0.3.0",
+    "react-responsive-carousel": "^3.1.43",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.0.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    "android >= 4",
+    "and_chr >= 0",
+    "ios_saf >= 6"
+  ]
+}
