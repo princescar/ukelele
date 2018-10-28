@@ -81,7 +81,7 @@ export default class extends Component {
             <ul>
               {!foods &&
                 [1, 2, 3].map(x => (
-                  <li key={x} className="card loading">
+                  <li key={x} className="card placeholder">
                     <ContentLoader
                       height={190}
                       width={135}

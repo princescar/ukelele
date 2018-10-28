@@ -12,6 +12,7 @@ const App = () => (
   <Router>
     <Switch>
       <Route path="/portal" component={asyncPage('portal')} />
+      <Route path="/gym/:id" component={asyncPage('gym-detail')} />
       <Redirect to="/portal" />
     </Switch>
   </Router>

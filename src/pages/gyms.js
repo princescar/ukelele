@@ -5,6 +5,7 @@ import ContentLoader from 'react-content-loader';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
+import Rating from '../components/rating';
 import humanizeDistance from '../utils/humanize-distance';
 import '../styles/gyms.scss';
 
@@ -42,6 +43,11 @@ export default class extends Component {
     this.setState({
       gyms: resp.data,
     });
+  }
+
+  detail(gym) {
+    const { history } = this.props;
+    history.push(`/gym/${gym.id}`);
   }
 
   render() {
@@ -96,7 +102,7 @@ export default class extends Component {
         <ul className="list">
           {!gyms &&
             [1, 2, 3].map(x => (
-              <li key={x} className="card loading">
+              <li key={x} className="card placeholder">
                 <ContentLoader
                   height={110}
                   width={375}
@@ -134,15 +140,11 @@ export default class extends Component {
             ))}
           {gyms &&
             gyms.map(x => (
-              <li className="card" key={x.id}>
+              <li className="card" key={x.id} onClick={() => this.detail(x)}>
                 <img className="logo" src={x.image} alt="" />
                 <div className="summary">
                   <div className="title">{x.name}</div>
-                  <div className="rating">
-                    <div
-                      className={`stars stars-${Math.floor(x.rating * 10)}`}
-                    />
-                  </div>
+                  <Rating score={x.rating} />
                   <div className="info">
                     <div className="location">
                       {x.address.region.title} {x.category}

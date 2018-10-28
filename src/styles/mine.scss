@@ -81,7 +81,7 @@
       background-color: #fff;
       display: flex;
       flex-direction: row;
-      &.loading > svg {
+      &.placeholder > svg {
         height: 110px;
       }
       .thumbnail {
