@@ -51,6 +51,11 @@ export default class extends Component {
     });
   }
 
+  detail(food) {
+    const { history } = this.props;
+    history.push(`/food/${food.id}`);
+  }
+
   render() {
     const { tags, foods } = this.state;
 
@@ -118,7 +123,7 @@ export default class extends Component {
                 ))}
               {foods &&
                 foods.map(x => (
-                  <li key={x.id} className="card">
+                  <li key={x.id} className="card" onClick={() => this.detail(x)}>
                     <img src={x.image} alt="" />
                     <div className="name">{x.name}</div>
                     <div className="heat">{x.heat} Kcal</div>

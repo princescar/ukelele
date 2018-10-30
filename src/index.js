@@ -13,6 +13,7 @@ const App = () => (
     <Switch>
       <Route path="/portal" component={asyncPage('portal')} />
       <Route path="/gym/:id" component={asyncPage('gym-detail')} />
+      <Route path="/food/:id" component={asyncPage('food-detail')} />
       <Redirect to="/portal" />
     </Switch>
   </Router>
