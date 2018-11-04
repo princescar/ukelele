@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import axios from 'axios';
-import { format } from 'date-fns';
+import { addHours, startOfHour } from 'date-fns';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import DateTimePicker from 'rmc-date-picker';
+import zhLocale from 'rmc-date-picker/lib/locale/zh_CN';
+import 'rmc-picker/assets/index.css';
+import 'rmc-date-picker/assets/index.css';
 
 import Rating from '../components/rating';
 import Modal from '../components/modal';
@@ -13,14 +19,20 @@ export default class extends Component {
     super();
     this.state = {
       gym: null,
-      bookingSevice: null,
-      showSelectDate: false,
-      selectedDate: '',
+      bookingService: null,
+      showBookModal: false,
+      selectedTime: null,
+      mobile: '',
     };
   }
 
   componentDidMount() {
     this.loadData();
+    this.setState({
+      minTime: startOfHour(addHours(new Date(), 1)),
+      selectedTime: startOfHour(addHours(new Date(), 1)),
+      mobile: '',
+    })
   }
 
   async loadData() {
@@ -33,29 +45,47 @@ export default class extends Component {
 
   book(service) {
     this.setState({
-      bookingSevice: service,
-      showSelectDate: true,
-      selectedDate: format(new Date(), 'YYYY-MM-DD'),
+      bookingService: service,
+      showBookModal: true,
     });
   }
 
-  onBookDateChange(newDate) {
+  onBookTimeChange(newTime) {
     this.setState({
-      selectedDate: newDate,
+      selectedTime: newTime,
     });
   }
 
-  async confirmBook() {}
+  onMobileChange(newMobile) {
+    this.setState({
+      mobile: newMobile,
+    });
+  }
+
+  async confirmBook() {
+    const { bookingService, selectedTime, mobile } = this.state;
+    await axios.post('/bookings', {
+      serviceId: bookingService.id,
+      bookingDateTime: selectedTime,
+      mobile,
+    });
+
+    alert('预定成功！');
+
+    this.setState({
+      showBookModal: false,
+    })
+  }
 
   giveUpBook() {
     this.setState({
-      selectedDate: '',
-      showSelectDate: false,
+      selectedTime: '',
+      showBookModal: false,
     });
   }
 
   render() {
-    const { gym, showSelectDate, selectedDate } = this.state;
+    const { gym, showBookModal, minTime, selectedTime, mobile } = this.state;
 
     return (
       gym && (
@@ -64,8 +94,22 @@ export default class extends Component {
             <title>{gym.name}</title>
           </Helmet>
           <div className="banner">
-            <img src={gym.image} alt="" />
-            <div className="image-count">{gym.pics}</div>
+            <Carousel
+              showArrows={false}
+              showStatus={false}
+              showThumbs={false}
+              infiniteLoop={true}
+              autoPlay={true}
+              interval={5000}
+              emulateTouch={true}
+            >
+              {gym.pics.map(x => (
+                <div className="content" key={x}>
+                  <img src={x} alt="" />
+                </div>
+              ))}
+            </Carousel>
+            <div className="image-count">{gym.pics.length}</div>
           </div>
           <div className="card">
             <div className="title">
@@ -99,19 +143,29 @@ export default class extends Component {
           <Modal
             mask="dark"
             className="book-sport"
-            isOpen={showSelectDate}
+            isOpen={showBookModal}
             onClose={() => this.giveUpBook()}
           >
             <div className="body">
+              <DateTimePicker
+                defaultDate={selectedTime}
+                date={selectedTime}
+                mode="datetime"
+                minDate={minTime}
+                locale={zhLocale}
+                onDateChange={x => this.onBookTimeChange(x)}
+              />
               <input
-                id="selectDate"
-                type="date"
-                value={selectedDate}
-                onChange={e => this.onBookDateChange(e.target.value)}
+                type="text"
+                value={mobile}
+                placeholder="请输入手机号"
+                onChange={e => this.onMobileChange(e.target.value)}
               />
             </div>
             <div className="footer">
-              <div className="button" onClick={() => this.confirmBook()}>预定</div>
+              <div className="button" onClick={() => this.confirmBook()}>
+                预定
+              </div>
             </div>
           </Modal>
         </div>

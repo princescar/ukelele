@@ -4,6 +4,21 @@
   overflow: hidden;
   .body {
     padding: 15px;
+    .rmc-date-picker {
+      padding: 20px 0;
+      .rmc-picker:first-of-type {
+        display: none;
+      }
+    }
+    input[type="text"] {
+      -webkit-appearance: none;
+      width: 100%;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      padding: 5px;
+      font-size: 18px;
+      text-align: center;
+    }
   }
   .footer {
     height: 65px;

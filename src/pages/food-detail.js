@@ -41,7 +41,7 @@ export default class extends Component {
             <div className="title">
               <h1>
                 {food.name}
-                <span class="heat">{food.heat} Kcal</span>
+                <span className="heat">{food.heat} Kcal</span>
               </h1>
               <div className="price">¥{food.price}</div>
             </div>

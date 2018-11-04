@@ -9,6 +9,7 @@
     "node-sass": "^4.9.3",
     "react": "^16.5.2",
     "react-aria-modal": "^3.0.1",
+    "react-calendar-mobile": "^0.1.6",
     "react-content-loader": "^3.2.0",
     "react-dom": "^16.5.2",
     "react-helmet": "^5.2.0",
@@ -17,7 +18,8 @@
     "react-md-spinner": "^0.3.0",
     "react-responsive-carousel": "^3.1.43",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.0.4"
+    "react-scripts": "2.0.4",
+    "rmc-date-picker": "^6.0.8"
   },
   "scripts": {
     "start": "react-scripts start",

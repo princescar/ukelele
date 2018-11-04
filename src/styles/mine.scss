@@ -57,25 +57,31 @@
       }
     }
   }
+  .react-calendar__header {
+    padding: 10px 0;
+  }
   .order-status-tabs {
-    margin-top: 20px;
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid #ececec;
     li {
       flex: 1;
-      border-bottom: 3px solid transparent;
       padding: 5px;
       font-size: 12px;
-      text-align: center;
       color: #4a4a4a;
+      text-align: center;
       &.active {
-        border-color: #f5a623;
         color: #f5a623;
       }
     }
   }
   .order-list {
+    .empty {
+      padding: 5px;
+      font-size: 12px;
+      color: #4a4a4a;
+      text-align: center;
+    }
     .card {
       margin-bottom: 2px;
       background-color: #fff;
@@ -95,7 +101,6 @@
       .summary {
         flex: 1;
         margin: 15px;
-        margin-left: 5px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -103,9 +108,10 @@
           display: flex;
           flex-direction: row;
           justify-content: space-between;
+          font-weight: 600;
           .store {
             font-size: 14px;
-            font-weight: 600;
+            font-weight: normal;
           }
           .status {
             font-size: 12px;
